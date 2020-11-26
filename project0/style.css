@@ -1,0 +1,87 @@
+#advancedsearchbutton, .advancedsubtext, .advancedtext, .advancedsubheader2, .advancedsubheader, #advancedheader, .searchbox, .searchbutton:hover, .searchbutton, .navbarstyling {
+  font-family: arial, sans-serif;
+}
+
+.navbarstyling {
+  background-color: #fff;
+  font-size: 13px;
+}
+
+.searchbutton {
+  background-color: #f8f9fa;
+  border-color: #f8f9fa;
+  color: #3c4043;
+  font-size: 14px;
+  height: 36px;
+  min-width: 54px;
+  text-align: center;
+}
+
+.searchbutton:hover {
+  background-color: #f8f9fa;
+  color: #3c4043;
+  font-size: 14px;
+  height: 36px;
+  min-width: 54px;
+  text-align: center;
+  border-color: #dddddd;
+  border-width: 1px;
+  border-style: outset;
+  box-sizing: border-box;
+  box-shadow: 0px 1px 0px #dddddd;
+}
+
+.searchbox {
+  display: inline-block;
+  font: 400 13.3333px Arial;
+}
+
+#advancednavbarstyling {
+  background-color: #f1f1f1;
+}
+
+#navbarlogostyling {
+  max-width: 92px;
+}
+
+#advancedheader {
+  color: orangered;
+}
+
+.advancedsubheader {
+  font-size: 14px;
+}
+
+.advancedsubheader2 {
+  font-size: 12px;
+  font-weight: bold;
+  color: #777;
+}
+
+.advancedtext {
+  font-size: 13px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.advancedsubtext {
+  font-size: 11px;
+  display: inline-block;
+  vertical-align: middle;
+  color: #777;
+}
+
+#advancedsearchbutton {
+  font-size: 14px;
+  height: 36px;
+  min-width: 54px;
+  text-align: center;
+}
+
+.advancedexamples {
+  color: #666;
+  font-family: monospace;
+  font-size: 11px;
+}
+
+/*# sourceMappingURL=style.css.map */

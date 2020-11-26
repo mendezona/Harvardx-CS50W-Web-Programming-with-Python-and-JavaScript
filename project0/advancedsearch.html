@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Search</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-lg navbar-light py-auto" id="advancednavbarstyling">
+            <img class="navbar-brand" id="navbarlogostyling" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Google_2015_logo.svg/368px-Google_2015_logo.svg.png">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">Search</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="imagesearch.html">Image Search</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="advancedsearch.html">Advanced Search<span class="sr-only">(current)</span></a>
+                </li>
+            </ul>
+        </nav>
+
+        <form action="https://google.com/search">
+            <div class="form-row">
+                <h4 class="mt-4 mb-2 px-5" id="advancedheader">
+                    Advanced search
+                </h4>
+            </div>  
+            
+            <hr class="mx-1"/>
+
+            <div class="form-row pb-2 advancedsubheader">
+                <div class="col-3 px-5">
+                    <h5>
+                        Find pages with...
+                    </h5>
+                </div>
+                <div class="col-5">
+
+                </div>
+                <div class="col-4 advancedsubheader2">
+                    <h6>
+                        To do this in the search box.
+                    </h6>
+                </div>
+            </div>
+            <div class="form-row py-1">
+                <div class="col-3 px-5 advancedtext">
+                    <p>
+                        all these words:
+                    </p>
+                </div>
+                <div class="col-5">
+                    <input type="text" name="as_q" class="form-control searchbox" id="as_q" aria-describedby="all these words:">
+                </div>
+                <div class="col-4 advancedsubtext">
+                    <p>
+                        Type the important words: 
+                        <span class="advancedexamples">
+                            tri-colour rat terrier
+                        </span>
+                    </p>
+                </div>
+            </div>
+            <div class="form-row py-1">
+                <div class="col-3 px-5 advancedtext">
+                    <p>
+                        this exact word or phrase:
+                    </p>
+                </div>
+                <div class="col-5">
+                    <input type="text" name="as_epq" class="form-control searchbox" id="as_epq" aria-describedby="exact word or phrase">
+                </div>
+                <div class="col-4 advancedsubtext">
+                    <p>
+                        Put exact words in quotes:
+                        <span class="advancedexamples">
+                            "rat terrier"
+                        </span>
+                    </p>
+                </div>
+            </div>
+            <div class="form-row py-1">
+                <div class="col-3 px-5 advancedtext">
+                    <p>
+                        any of these words:
+                    </p>
+                </div>
+                <div class="col-5">
+                    <input type="text" name="as_oq" class="form-control searchbox" id="as_oq" aria-describedby="any of these words">
+                </div>
+                <div class="col-4 advancedsubtext">
+                    <p>
+                        Type 
+                        <span class="advancedexamples">
+                            OR
+                        </span>
+                         between all the words you want: 
+                        <span class="advancedexamples">
+                         miniature OR standard
+                        </span>
+                    </p>
+                </div>
+            </div>
+            <div class="form-row py-1">
+                <div class="col-3 px-5 advancedtext">
+                    <p>
+                        none of these words:
+                    </p>
+                </div>
+                <div class="col-5">
+                    <input type="text" name="as_eq" class="form-control searchbox" id="as_eq" aria-describedby="none of these words">
+                </div>
+                <div class="col-4 advancedsubtext">
+                    <p>
+                        Put a minus sign just before words that you don't want: 
+                        <span class="advancedexamples">
+                            -rodent, -"Jack Russell"
+                        </span>
+                    </p>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="col-3 px-5">
+                </div>
+                <div class="col-5">
+                    <button type="submit" class="btn btn-primary float-right" id="advancedsearchbutton">Advanced Search</button>   
+                </div>
+                <div class="col-4">
+                </div>
+            </div>
+        </form>
+    </body>
+</html>
