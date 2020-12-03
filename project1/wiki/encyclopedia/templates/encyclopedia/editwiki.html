@@ -1,0 +1,25 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    Edit wiki: {{ title }}
+{% endblock %}
+
+{% block body %}
+
+    <h1>Edit existing wiki: {{ title }} </h1>
+    <div>
+    <form action="{% url 'encyclopedia:editWiki' %}" method="POST">
+        {% csrf_token %}
+        <div>
+            <p>
+                {{ newContent }}
+            </p>
+        </div>
+        <div>
+            <input type="submit">
+        </div>
+        </div>
+    </form>
+    </div>    
+
+{% endblock %}

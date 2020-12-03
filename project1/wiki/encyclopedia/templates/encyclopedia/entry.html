@@ -1,0 +1,20 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    {{ entryName }}
+{% endblock %}
+
+{% block body %}
+
+    {{ content|safe }}
+
+    <p>
+        <form action="{% url 'encyclopedia:editWiki' %}" method="GET">
+            {% csrf_token %}
+            <input type="hidden" name="title" value="{{ entryName }}">
+            <input type="hidden" name="content" value="{{ content }}">
+            <input type="submit" value="Edit wiki">
+        </form>
+    </p>
+
+{% endblock %}
