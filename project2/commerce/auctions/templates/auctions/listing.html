@@ -1,0 +1,97 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+
+    <h2>{{ item.listingTitle }}</h2>
+
+    {% if user.is_authenticated %}
+        <form action="{% url 'watchlistToggle' %}" method="GET">
+            <input type="hidden" name="userId" value="{{ user.id }}">
+            <input type="hidden" name="itemId" value="{{ item.id }}">
+            <button type="submit" class="btn btn-secondary btn-sm">Watchlist</button>
+        </form>
+    {% endif %}
+    
+    {% if item.listingActive == True %}
+        {% if user.id == item.listingUser_id %}
+            <form action="{% url 'closeauction' %}" method="GET">
+                <input type="hidden" name="itemId" value="{{ item.id }}">
+                <button type="submit" class="btn btn-warning btn-sm my-2">Close auction</button>
+            </form>
+        {% endif %}
+        
+        {% if item.listingImage %}
+        <img class="activeListingPhoto my-2" src="{{ item.listingImage }}" alt="{{ item.listingTitle }}">
+        {% endif %}
+
+        <p>Item description: {{ item.listingDesc }}</p>
+        <h3>${{ price }}</h3>
+        
+        {% if user.is_authenticated %}
+        <form action="{% url 'listing' item.id %}" method="POST">
+            {% csrf_token %}
+            <div class="form-group">
+                <small id="bidderInfo" class="form-text text-muted">Number of bids: {{ bidsCount }}</small>
+                {% if status == 'Bid successfully placed.' %}
+                    <small id="passwordHelpBlock" class="form-text text-success">{{status}}</small>
+                {% else %}
+                    <small id="passwordHelpBlock" class="form-text text-danger">{{status}}</small>
+                {% endif %}
+                {{ bidForm }}
+            </div>
+            <div>
+                <input type="hidden" name="userId" value="{{ user.id }}">
+                <input type="hidden" name="itemId" value="{{ item.id }}">
+                <input type="submit" class="btn btn-primary" value="Place bid">
+            </div>
+        </form>   
+        {% endif %}
+
+    {% else %}
+
+        {% if item.listingImage %}
+        <img class="activeListingPhoto my-2" src="{{ item.listingImage }}" alt="{{ item.listingTitle }}">
+        {% endif %}
+
+        <p>Item description: {{ item.listingDesc }}</p>
+
+        {% if user.id == winner %}
+        <h3 class="text-success">You won! Final price: ${{ price }}</h3>
+        {% else %}
+        <h3 class="text-info">This listing is no longer available.</h3>
+        {% endif %}
+
+    {% endif %}
+
+    <div class="my-4">
+        <h4>Details</h4>
+        <ul>
+            <li>Listed by: {{ item.listingUser }}</li>
+            <li>Category: {{ item.listingCategory }}</li>
+        </ul>
+    </div>
+
+    <h5>Comments</h5>
+    {% if comments %}
+        {% for comment in comments %}
+        <p>{{ comment.commentText }}</p>
+        <p class="font-weight-light">- Submitted by {{ comment.commentUser }} on {{ comment.commentSubmitted }}</p>
+        <hr>
+        {% endfor %}
+
+    {% else %}
+        <p>No comments posted yet.</p>
+
+    {% endif %}
+
+    {% if user.is_authenticated %}
+    <form action="{% url 'comment' %}" method="GET">
+        {% csrf_token %}
+        {{ commentForm }}
+        <input type="hidden" name="userId" value="{{ user.id }}">
+        <input type="hidden" name="itemId" value="{{ item.id }}">
+        <input type="submit" class="btn btn-outline-primary btn-sm my-2" value="Post comment">
+    </form>
+    {% endif %}
+
+{% endblock %}

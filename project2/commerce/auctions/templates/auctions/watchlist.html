@@ -1,0 +1,30 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+
+    <h2>Watchlist</h2>
+
+    <div class="container-fluid">
+        {% for listing in listings %}
+        <div class="row border border-light my-2">
+            <div class="col-3">
+                {% if listing.listingImage %}
+                    <img class="activeListingPhoto" src="{{ listing.listingImage }}" alt="{{ listing.listingTitle }}">
+                {% else %}
+
+                {% endif %}
+            </div>
+            <div class="col-3 activeListingText">
+                <h5><a href="{% url 'listing' listing.id %}">{{ listing.listingTitle }}</a></h5>
+                <p>{{ listing.listingDesc }}</p>
+                <p>Created: {{ listing.listingCreated }}</p>
+            </div>    
+            <div class="col-6">
+                
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+
+{% endblock %}
