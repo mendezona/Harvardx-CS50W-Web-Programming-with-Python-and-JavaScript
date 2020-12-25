@@ -120,7 +120,7 @@ function load_mailbox(mailbox) {
         for (x = 0; x < displayColumns.length; x++) {
           const newColumn = document.createElement('div');
           const newSmall = document.createElement('small');
-          
+
           //initalise background colours if email is read or not (white for unread, grey for read)
           if (emails[i]["read"] == true) {
             newColumn.className = 'col bg-light';
@@ -235,7 +235,6 @@ function emailContent(emailID) {
         //attach event listener to new row
         archiveButton.addEventListener('click', function() {
           archiveEmail(email["id"], booleanStatus);
-          load_mailbox('inbox');
         });
 
         //add button to header container
@@ -287,12 +286,16 @@ function replyEmail(sender, subject, timestamp, body) {
   document.querySelector('#compose-body').value = '\n\nOn ' + timestamp + ' ' + sender + ' wrote: \n\n' + body;
 }
 
-//archive email when button archive button is clicked
+//archive email when button archive button is clicked, load inbox after small delay to ensure 
+//API has enough time to process request
 function archiveEmail(emailID, booleanStatus) {
   fetch('/emails/' + emailID, {
     method: 'PUT',
     body: JSON.stringify({
         archived: booleanStatus
     })
-  });
+  })
+  .then(setTimeout(function() {
+    load_mailbox('inbox');
+  }, 100));
 }
