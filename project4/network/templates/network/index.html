@@ -1,0 +1,32 @@
+{% extends "network/layout.html" %}
+{% load static %}
+
+{% block body %}
+    {% if user.is_authenticated %}
+    <div id="newPostBox" class="container border rounded my-3 py-3">
+        <form method="post">    
+            {% csrf_token %}        
+            <h5>New Post</h5>
+            <div class="form-group">
+                <textarea class="form-control rounded my-1" id="newPostContent" maxlength="280"></textarea>
+                <small id="charactersRemaining" class="form-text text-muted text-right">280 characters remaining</small>
+                <button type="submit" class="btn btn-primary my-1">Post</button>
+            </div>
+        </form>
+    </div>
+    {% endif %}
+    
+    <div class="container border rounded my-3 py-3" id="displayPosts">
+    </div>
+
+    <div>
+    <ul class="pagination justify-content-center" id="pageButtons">
+    </ul>
+    </div>
+
+{% endblock %}
+
+{% block script %}
+    <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="{% static 'network/index.js' %}"></script>
+{% endblock %}

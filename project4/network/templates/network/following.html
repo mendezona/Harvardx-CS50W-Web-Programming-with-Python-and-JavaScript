@@ -1,0 +1,19 @@
+{% extends "network/layout.html" %}
+{% load static %}
+
+{% block body %}
+
+    <div class="container border rounded my-3 py-3" id="displayPosts">
+    </div>
+
+    <div>
+    <ul class="pagination justify-content-center" id="pageButtons">
+    </ul>
+    </div>
+
+{% endblock %}
+
+{% block script %}
+    <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="{% static 'network/following.js' %}"></script>
+{% endblock %}
